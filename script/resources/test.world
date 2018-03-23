@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <physics name='default_physics' default='0' type='ode'>
+      <real_time_update_rate>400</real_time_update_rate>
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <model name="heightmap">
+      <static>true</static>
+      <link name="link">
+        <collision name="map_col">
+          <geometry>
+            <heightmap>
+              <uri>model://maps/t_name.png</uri>
+              <size>t_size_x t_size_y t_size_z</size>
+              <pos>0 0 t_pos_z</pos>
+            </heightmap>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="map_vis">
+          <geometry>
+            <heightmap>
+              <use_terrain_paging>false</use_terrain_paging>
+              <!-- <cast_shadows>false</cast_shadows> -->
+              <texture>
+                <diffuse>model://textures/rubble.png</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+              <texture>
+                <diffuse>file://media/materials/textures/dirt_diffusespecular.png</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+              <!-- <texture>
+                <diffuse>file://media/materials/textures/grass_diffusespecular.png</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture> -->
+              <texture>
+                <diffuse>model://textures/wall.jpg</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+              <blend>
+                <min_height>0</min_height>
+                <fade_dist>0.8</fade_dist>
+              </blend>
+              <blend>
+                <min_height>0.3</min_height>
+                <fade_dist>2</fade_dist>
+              </blend>
+              <!-- <blend>
+                <min_height>0.5</min_height>
+                <fade_dist>0.1</fade_dist>
+              </blend> -->
+              <uri>model://maps/t_name.png</uri>
+              <size>t_size_x t_size_y t_size_z</size>
+              <pos>0 0 t_pos_z</pos>
+            </heightmap>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

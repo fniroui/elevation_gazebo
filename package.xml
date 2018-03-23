@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>elevation_gazebo</name>
+  <version>1.0.0</version>
+  <description>Elevation world generator for gazebo.</description>
+
+  <author email="farzad.niroui@gmail.com">Farzad Niroui</author>
+
+  <maintainer email="farzad.niroui@gmail.com">Farzad Niroui</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website"></url>
+  <url type="repository"></url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>gazebo_plugins</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>rostopic</run_depend>
+  <build_depend>roslaunch</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/> 
+  </export>
+</package>
